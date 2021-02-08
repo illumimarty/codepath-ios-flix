@@ -7,6 +7,9 @@ target 'Flix' do
 
   # Pods for Flix
   pod "AlamofireImage"
+  pod 'Alamofire', '~>4.4'
+  pod 'OAuthSwift', '~> 1.1.10'
+  pod 'OAuthSwiftAlamofire'
 
   target 'FlixTests' do
     inherit! :search_paths

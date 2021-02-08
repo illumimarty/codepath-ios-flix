@@ -20,9 +20,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        print("Hello")
-        
+                
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -49,8 +47,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
     
     
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
@@ -72,13 +68,19 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let posterUrl = URL(string: baseUrl + posterPath)
         
         cell.movieImage.af.setImage(withURL: posterUrl!)
-//        if let posterPath = movie["poster_path"] as? String {
-//            let posterUrl = URL(string: baseUrl + posterPath)
-//            cell.movieImage.af.setImage(withURL: posterUrl!)
-//        }
+
         return cell
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let cell = sender as! UITableViewCell
+        if let indexPath = tableView.indexPath(for: cell) {
+            let m = movies[indexPath.row]
+            let detailViewController = segue.destination as! MoviesDetailViewController
+            detailViewController.m = m
+        }
+        print("Loading details screen")
+    }
 }
 

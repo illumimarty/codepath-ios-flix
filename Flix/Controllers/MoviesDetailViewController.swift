@@ -9,10 +9,16 @@ import UIKit
 
 class MoviesDetailViewController: UIViewController {
 
+    @IBOutlet weak var posterImage: UIImageView!
+    
+    var m: [String: Any]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+//        posterImage.af.setImage(withURL: m.imageURL!)
+        print(m["title"])
     }
     
 

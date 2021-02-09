@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="htp-Ps-OVm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Gv-hq-6Tp">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -64,6 +64,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="film" catalog="system" id="dFs-a4-sbd"/>
                     <navigationItem key="navigationItem" title="Movies" id="Urj-UK-P0h"/>
                     <connections>
                         <outlet property="tableView" destination="o5R-Jx-FCj" id="AFD-zm-sy9"/>
@@ -71,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1071.2" y="114.69265367316342"/>
+            <point key="canvasLocation" x="2949.5999999999999" y="114.69265367316342"/>
         </scene>
         <!--Movies Detail View Controller-->
         <scene sceneID="9hf-3z-wj6">
@@ -127,12 +128,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kfe-wH-r9u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2959.1999999999998" y="114.69265367316342"/>
+            <point key="canvasLocation" x="4837.6000000000004" y="114.69265367316342"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="auQ-3b-qA8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="htp-Ps-OVm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="WYc-jR-KL8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mvh-E1-z6s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -140,12 +142,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Qlv-Pa-aci"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="BEo-Hy-CKh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYM-Rf-8D9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="114.69265367316342"/>
+            <point key="canvasLocation" x="2040.8" y="114.69265367316342"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6rn-yS-i64">
@@ -163,13 +165,68 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kh6-aV-ZSF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2020" y="114.69265367316342"/>
+            <point key="canvasLocation" x="3898.4000000000001" y="114.69265367316342"/>
+        </scene>
+        <!--Superheroes-->
+        <scene sceneID="f5E-tJ-Jgr">
+            <objects>
+                <viewController id="jnc-n4-WUz" customClass="MoviesGridViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O52-r1-Fn4" customClass="Support">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="sdf-Lh-Z9p"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Superheroes" id="syM-Le-cGp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="csg-zi-SFo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2980" y="912.5937031484259"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="6kG-ab-sjQ">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8Gv-hq-6Tp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p4J-v8-IFu">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="htp-Ps-OVm" kind="relationship" relationship="viewControllers" id="fyl-EV-cjR"/>
+                        <segue destination="BAm-oo-oni" kind="relationship" relationship="viewControllers" id="GtX-bC-a5G"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u7h-2f-SmC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1065" y="499"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0Sj-ux-e9u">
+            <objects>
+                <navigationController title="Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="BAm-oo-oni" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Superheroes" image="safari" catalog="system" id="wv0-A4-YGM"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zzs-he-9T4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jnc-n4-WUz" kind="relationship" relationship="rootViewController" id="XEO-ud-DUn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jkj-OO-DIq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2040.8" y="912.5937031484259"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="osa-SG-aoj"/>
+        <segue reference="Kht-Wf-nV1"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="film" catalog="system" width="128" height="93"/>
+        <image name="safari" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

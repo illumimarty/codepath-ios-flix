@@ -6,13 +6,20 @@
 //
 
 import UIKit
+import AlamofireImage
 
-class MoviesGridViewController: UIViewController {
+class MoviesGridViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     var movies = [[String: Any]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
 
         // Do any additional setup after loading the view.
         
@@ -29,6 +36,7 @@ class MoviesGridViewController: UIViewController {
             self.movies = dataDictionary["results"] as! [[String: Any]]
             
 //            self.tableView.reloadData()
+            self.collectionView.reloadData() // reloads data after fetching movies from internet
             
             print(self.movies)
               // TODO: Get the array of movies
@@ -40,15 +48,22 @@ class MoviesGridViewController: UIViewController {
         task.resume()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return movies.count
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! MovieGridCell
+        
+        let movie = movies[indexPath.item] // not row bc it's a CollectionView
+        
+        let baseUrl = "https://image.tmdb.org/t/p/w185"
+        let posterPath = movie["poster_path"] as! String
+        let posterUrl = URL(string: baseUrl + posterPath)
+        
+        cell.posterImage.af.setImage(withURL: posterUrl!)
 
+        return cell
+    }
+    
 }

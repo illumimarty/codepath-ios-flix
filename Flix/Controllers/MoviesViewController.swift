@@ -76,9 +76,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         let cell = sender as! UITableViewCell
         if let indexPath = tableView.indexPath(for: cell) {
-            let m = movies[indexPath.row]
+            let movie = movies[indexPath.row]
             let detailViewController = segue.destination as! MoviesDetailViewController
-            detailViewController.m = m
+            detailViewController.movie = movie
+            
+            tableView.deselectRow(at: indexPath, animated: true)
         }
         print("Loading details screen")
     }

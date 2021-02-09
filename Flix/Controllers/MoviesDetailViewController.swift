@@ -10,15 +10,38 @@ import UIKit
 class MoviesDetailViewController: UIViewController {
 
     @IBOutlet weak var posterImage: UIImageView!
+    @IBOutlet weak var backdropImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var synopsisLabel: UILabel!
     
-    var m: [String: Any]!
+    
+    var movie: [String: Any]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
 //        posterImage.af.setImage(withURL: m.imageURL!)
-        print(m["title"])
+        
+        titleLabel.text = movie["title"] as? String
+        titleLabel.sizeToFit()
+        
+        dateLabel.text = movie["release_date"] as? String
+        dateLabel.sizeToFit()
+        
+        synopsisLabel.text = movie["overview"] as? String
+        synopsisLabel.sizeToFit()
+        
+        let baseUrl = "https://image.tmdb.org/t/p/w185"
+        let posterPath = movie["poster_path"] as! String
+        let backdropPath = movie["backdrop_path"] as! String
+        
+        let posterUrl = URL(string: baseUrl + posterPath)
+        posterImage.af.setImage(withURL: posterUrl!)
+        
+        let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + backdropPath)
+        backdropImage.af.setImage(withURL: backdropUrl!)
     }
     
 
